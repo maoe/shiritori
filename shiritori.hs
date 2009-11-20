@@ -22,8 +22,7 @@ pLine = Line <$> lexeme (many1 (satisfy (/= '\n')))
 pInclude :: ParsecT String [Context] IO Content
 pInclude = do
   Line f <- try (lexeme (string "include")) *> pLine
-  note <- newContext $ pFile f
-  return $ Included note
+  Included <$> newContext (pFile f)
 
 pFile :: SourceName -> ParsecT String [Context] IO Note
 pFile f = do
