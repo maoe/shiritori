@@ -1,0 +1,5 @@
+kobuta
+tanuki
+include tsuduki.txt
+kitsune
+neko
